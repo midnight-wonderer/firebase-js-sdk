@@ -129,7 +129,7 @@ export async function _getRedirectUrl(
 
 function getHandlerBase({ config }: AuthInternal): string {
   if (!config.emulator) {
-    return `https://${config.authDomain}/${WIDGET_PATH}`;
+    return `${config.authScheme || 'https'}://${config.authDomain}/${WIDGET_PATH}`;
   }
 
   return _emulatorUrl(config, EMULATOR_WIDGET_PATH);

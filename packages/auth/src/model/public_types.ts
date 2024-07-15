@@ -65,6 +65,10 @@ export interface Config {
    * The domain at which the web widgets are hosted (provided via Firebase Config).
    */
   authDomain?: string;
+  /**
+   * The scheme used to communicate with the hosted web widgets.
+   */
+  authScheme?: string;
 }
 
 /**

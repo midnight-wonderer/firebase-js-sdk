@@ -51,11 +51,11 @@ const EID_FROM_APIHOST = new Map([
 ]);
 
 function getIframeUrl(auth: AuthInternal): string {
-  const config = auth.config;
+  const { config } = auth;
   _assert(config.authDomain, auth, AuthErrorCode.MISSING_AUTH_DOMAIN);
   const url = config.emulator
     ? _emulatorUrl(config, EMULATED_IFRAME_PATH)
-    : `https://${auth.config.authDomain}/${IFRAME_PATH}`;
+    : `${config.authScheme || 'https'}://${config.authDomain}/${IFRAME_PATH}`;
 
   const params: Record<string, string> = {
     apiKey: config.apiKey,
